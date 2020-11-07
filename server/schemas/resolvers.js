@@ -26,9 +26,9 @@ const resolvers = {
 Mutation: {
   addUser: async (parent, args) => {
     const user = await User.create(args);
-    const token = signToken(user);
+    // const token = signToken(user);
 
-    return { token, user };
+    return user;
   },
   addOrder: async (parent, { products }, context) => {
   if (context.user) {
@@ -40,6 +40,10 @@ Mutation: {
     }
 
     throw new AuthenticationError('Not logged in');
+  },
+  addProduct: async(parent, args) => {
+    const product = await Product.create(args);
+    return product;
   },
   updateProduct: async (parent, { _id, quantity }) => {
     const decrement = Math.abs(quantity) * -1;
