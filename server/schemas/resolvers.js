@@ -26,9 +26,10 @@ const resolvers = {
 Mutation: {
   addUser: async (parent, args) => {
     const user = await User.create(args);
-    // const token = signToken(user);
+    const token = signToken(user);
 
-    return user;
+    console.log(user.username, token);
+    return {token, user};
   },
   addOrder: async (parent, { products }, context) => {
   if (context.user) {
@@ -39,7 +40,7 @@ Mutation: {
       return order;
     }
 
-    throw new AuthenticationError('Not logged in');
+    // throw new AuthenticationError('Not logged in');
   },
   addProduct: async(parent, args) => {
     const product = await Product.create(args);
