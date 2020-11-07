@@ -4,6 +4,9 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
+    user: async () => {
+      return await User.find();
+    },
     products: async () => {
       return await Product.find();
     },
@@ -12,6 +15,8 @@ const resolvers = {
     },
     order: async (parent, { _id }, context) => {
       if (context.user) {
+      //   context.user = {};
+      // context.user._id = "5fa6e4fb4296f2234421c3e8";
         const user = await User.findById(context.user._id).populate({
           path: 'orders.products',
           populate: 'products'
@@ -32,15 +37,18 @@ Mutation: {
     return {token, user};
   },
   addOrder: async (parent, { products }, context) => {
+    console.log("running query!");
   if (context.user) {
       const order = new Order({ products });
-
+      // context.user = {};
+      // context.user._id = "5fa6e4fb4296f2234421c3e8";
       await User.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
 
+      console.log(products);
       return order;
     }
 
-    // throw new AuthenticationError('Not logged in');
+    throw new AuthenticationError('Not logged in');
   },
   addProduct: async(parent, args) => {
     const product = await Product.create(args);
