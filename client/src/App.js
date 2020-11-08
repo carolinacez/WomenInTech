@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
-import shirt from './logo_girl_code.png';
+import logo from './logo_girl_code.png';
 import Nav from "./components/Nav";
 
 
@@ -33,7 +33,7 @@ function App() {
         <Route exact path="/products/:id" component={Detail} /> */}
     <div className="App">
       <header className="App-header">
-      <img src={shirt} className="App-logo" alt="logo" />
+      <img src={logo} className="App-logo" alt="logo" />
 
       </header>
     </div>
