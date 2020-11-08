@@ -1,12 +1,17 @@
 import React from "react";
-import { useDispatch, useSelector } from 'react-redux'
+// import { useDispatch, useSelector } from 'react-redux'
 import Item from '../Item'
+import { QUERY_PRODUCTS} from '../../utils/queries'
+import { useQuery } from '@apollo/react-hooks';
 
 function ProductList() {
-    const dispatch = useDispatch();
-    const state = useSelector(state => state);
+    // const dispatch = useDispatch();
+    // const state = useSelector(state => state);
 
-    const { products } = state
+    // const { products } = state
+
+    const { data, loading } = useQuery(QUERY_PRODUCTS)
+    const products = data && data.products ? data.products : []
 
     return (
         <div>
