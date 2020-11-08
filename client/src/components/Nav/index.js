@@ -8,13 +8,13 @@ function Nav() {
       return (
         <ul>
           <li>
-            <button>About Us</button>
+            <Link to="/"><button>About Us</button></Link>
           </li>
           <li>
-            <button>Products</button>
+            <Link to="/products"><button>Products</button></Link>
           </li>
           <li>
-            <button>Checkout</button>
+            <Link to="/cart"><button>Cart</button></Link>
           </li>
           <li>
             <button href='/' onClick={() => Auth.logout()}>Logout</button>
@@ -25,15 +25,20 @@ function Nav() {
       return (
         <ul>
           <li>
-            <button>About Us</button>
+            <Link to="/"><button>About Us</button></Link>
+          </li>
+         <li>
+            <Link to="/products"><button>Products</button></Link>
           </li>
           <li>
             <button>
-            <Link to='/signup'>Signup/ Login</Link>
+            <Link to='/signup'>Signup</Link>
             </button>
           </li>
           <li>
-            <button>Products</button>
+            <button>
+            <Link to='/login'>Login</Link>
+            </button>
           </li>
         </ul>
       );

@@ -30,7 +30,6 @@ db.once('open', async () => {
       description:
         'Blue cotton t-shirt (unisex).',
       image: 'girl_code_1.PNG',
-    //   category: categories[0]._id,
       price: 20.00,
       quantity: 500
     },
@@ -39,22 +38,18 @@ db.once('open', async () => {
       description:
         'White dad hat.',
       image: 'girl_code_2.PNG',
-    //   category: categories[0]._id,
       price: 20.00,
       quantity: 500
     },
     {
       name: 'girl_code bookbag',
-    //   category: categories[1]._id,
-      description:
-        'Red bookbag.',
+      description:'Red bookbag.',
       image: 'girl_code_3.PNG',
       price: 25.00,
       quantity: 200
     },
     {
       name: 'girl_code white t-shirt',
-    //   category: categories[1]._id,
       description:
         'White cotton t-shirt (unisex).',
       image: 'girl_code_4.PNG',
@@ -63,7 +58,6 @@ db.once('open', async () => {
     },
     {
         name: 'girl_code grey hoodie',
-      //   category: categories[1]._id,
         description:
           'Grey cotton hoodie (unisex).',
         image: 'girl_code_5.PNG',
@@ -72,7 +66,6 @@ db.once('open', async () => {
       },
       {
         name: 'girl_code black hoodie',
-      //   category: categories[1]._id,
         description:
           'Black cotton hoodie (unisex).',
         image: 'girl_code_6.PNG',

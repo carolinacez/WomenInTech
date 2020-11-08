@@ -2,63 +2,63 @@ import React, {useState} from 'react';
 import {Link} from 'react-router-dom'; 
 import {useMutation} from '@apollo/react-hooks';
 import Auth from '../utils/auth';
-import {ADD_USER} from '../utils/mutations';
+import {SIGNUP_USER} from '../utils/mutations';
 
 function Signup() {
-    const [formState, setFormState] = useState({ email: '', password: ''});
-    const [addUser] = useMutation(ADD_USER);
+    const [initialState, setState] = useState({ username: '', email: '', password: ''});
+    const [signupUser] = useMutation(SIGNUP_USER);
 
     const signupForm = async event => {
         event.preventDefault();
-        const userResponse = await addUser({
+        const userResponse = await signupUser({
             variables: {
-                username: formState.username, email: formState.email, password: formState.password
+                username: initialState.username, email: initialState.email, password: initialState.password
             }
         });
-        const token = userResponse.data.addUser.token;
+        const token = userResponse.data.signupForm.token;
         Auth.login(token);
     };
 
-    const updatesForm = event => {
+    const submitForm = event => {
         const {name, value} = event.target;
-        setFormState({
-            ...formState, 
+        setState({
+            ...initialState, 
             [name]: value
         });
     };
 
     return (
         <div>
-            <h2>Signup</h2>
+           <Link to="/Signup"> <h2>Signup</h2> </Link>
             <form onSubmit={signupForm}>
                 <div>
                     <label>Username:</label>
                     <input
-                    placeholder='Username123'
+                    placeholder='Enter Username'
                     name='username'
                     type='username'
                     id='username'
-                    onChange={updatesForm}
+                    onChange={submitForm}
                     />
                 </div>
                 <div>
                     <label>Email:</label>
                     <input
-                    placeholder='email@emails.com'
+                    placeholder='Enter email@emails.com'
                     name='email'
                     type='email'
                     id='email'
-                    onChange={updatesForm}
+                    onChange={submitForm}
                     />
                 </div>
                 <div>
                     <label>Password:</label>
                     <input
-                    placeholder='*******'
+                    placeholder='Password'
                     name='password'
                     type='password'
                     id='password'
-                    onChange={updatesForm}
+                    onChange={submitForm}
                     />
                 </div>
                 <div>
