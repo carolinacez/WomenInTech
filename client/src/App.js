@@ -1,25 +1,45 @@
-// import logo from './logo.svg';
-import shirt from './logo_girl_code.png'
-// import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { ApolloProvider } from '@apollo/react-hooks';
+import ApolloClient from 'apollo-boost';
+import shirt from './logo_girl_code.png';
+import Nav from "./components/Nav";
+
+
+const client = new ApolloClient({
+  request: (operation) => {
+    const token = localStorage.getItem('id_token')
+    operation.setContext({
+      headers: {
+        authorization: token ? `Bearer ${token}` : ''
+      }
+    })
+  },
+  uri: '/graphql',
+})
+
 
 function App() {
   return (
+    <ApolloProvider client={client}>
+    <Router>
+      <Nav />
+      <Switch>
+        {/* <Route exact path="/" component={Home} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/signup" component={Signup} />
+        <Route exact path="/cart" component={Cart} /> 
+        <Route exact path ="/products" component={Products} /> 
+        <Route exact path="/products/:id" component={Detail} /> */}
     <div className="App">
       <header className="App-header">
       <img src={shirt} className="App-logo" alt="logo" />
-        {/* <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a> */}
+
       </header>
     </div>
+    </Switch>
+    </Router>
+    </ApolloProvider>
   );
 }
 
