@@ -5,7 +5,7 @@ import Auth from '../utils/auth';
 import {SIGNUP_USER} from '../utils/mutations';
 
 function Signup() {
-    const [initialState, setState] = useState({ username: '', email: '', password: ''});
+    const [initialState, setState] = useState({ email: '', password: ''});
     const [signupUser] = useMutation(SIGNUP_USER);
 
     const signupForm = async event => {
@@ -15,7 +15,7 @@ function Signup() {
                 username: initialState.username, email: initialState.email, password: initialState.password
             }
         });
-        const token = userResponse.data.signupForm.token;
+        const token = userResponse.data.addUser.token;
         Auth.login(token);
     };
 
