@@ -3,16 +3,9 @@ import { Link } from "react-router-dom";
 // import { useDispatch, useSelector } from 'react-redux';
 // import { ADD_TO_CART } from "../../utils/actions";
 
-function Item(item) {
+function Item({addToCart, product}) {
 
-    const [cart, setCart] = useState([])
-    console.log(cart);
-    const { image, name, _id, price} = item; 
-
-    const addToCart = (item) => {
-        setCart([...cart, item]);
-        console.log(item); 
-    }
+    const { image, name, _id, price} = product; 
 
 
     return ( 
@@ -22,11 +15,15 @@ function Item(item) {
                 alt={name}
                 src={`/images/${image}`} />
                <p>{name}</p> 
+               {/* image={product.image}
+                name={product.name}
+                price={product.price}
+                quantity={product.quantity} */}
             </Link>
             <div>
             <span>${price}</span>
             </div>
-            <input type='submit' value='add' onClick={() => addToCart(item)} />
+            <Link to={`/cart`}><input type='submit' value='add' onClick={() => addToCart(product)} /></Link>
             <input type='submit' value='remove'  />
         </div>
 
