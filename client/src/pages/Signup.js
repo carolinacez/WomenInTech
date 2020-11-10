@@ -1,72 +1,87 @@
-import React, {useState} from 'react';
-import {Link} from 'react-router-dom'; 
-import {useMutation} from '@apollo/react-hooks';
-import Auth from '../utils/auth';
-import {SIGNUP_USER} from '../utils/mutations';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { useMutation } from "@apollo/react-hooks";
+import Auth from "../utils/auth";
+import { SIGNUP_USER } from "../utils/mutations";
 
 function Signup() {
-    const [initialState, setState] = useState({ email: '', password: ''});
-    const [signupUser] = useMutation(SIGNUP_USER);
+  const [initialState, setState] = useState({ email: "", password: "" });
+  const [signupUser] = useMutation(SIGNUP_USER);
 
-    const signupForm = async event => {
-        event.preventDefault();
-        const userResponse = await signupUser({
-            variables: {
-                username: initialState.username, email: initialState.email, password: initialState.password
-            }
-        });
-        const token = userResponse.data.addUser.token;
-        Auth.login(token);
-    };
+  const signupForm = async (event) => {
+    event.preventDefault();
+    const userResponse = await signupUser({
+      variables: {
+        username: initialState.username,
+        email: initialState.email,
+        password: initialState.password,
+      },
+    });
+    const token = userResponse.data.addUser.token;
+    Auth.login(token);
+  };
 
-    const submitForm = event => {
-        const {name, value} = event.target;
-        setState({
-            ...initialState, 
-            [name]: value
-        });
-    };
+  const submitForm = (event) => {
+    const { name, value } = event.target;
+    setState({
+      ...initialState,
+      [name]: value,
+    });
+  };
 
-    return (
-        <div>
-           <Link to="/Signup"> <h2>Signup</h2> </Link>
-            <form onSubmit={signupForm}>
-                <div>
-                    <label>Username:</label>
-                    <input
-                    placeholder='Enter Username'
-                    name='username'
-                    type='username'
-                    id='username'
-                    onChange={submitForm}
-                    />
-                </div>
-                <div>
-                    <label>Email:</label>
-                    <input
-                    placeholder='Enter email@emails.com'
-                    name='email'
-                    type='email'
-                    id='email'
-                    onChange={submitForm}
-                    />
-                </div>
-                <div>
-                    <label>Password:</label>
-                    <input
-                    placeholder='Password'
-                    name='password'
-                    type='password'
-                    id='password'
-                    onChange={submitForm}
-                    />
-                </div>
-                <div>
-                    <button type='submit'>Submit</button>
-                </div>
-            </form>
-        </div>
-    );
+  return (
+    <div>
+      <div className="padding">
+        <h2 class="uk-legend">Signup</h2>
+        <form class="uk-form-horizontal uk-margin-large" onSubmit={signupForm}>
+          <div class="uk-margin">
+            <label class="uk-form-label" for="form-horizontal-text">
+              Username:
+            </label>
+            <input
+              class="uk-input uk-form-danger uk-form-width-large"
+              placeholder="Enter Username"
+              name="username"
+              type="username"
+              id="username"
+              onChange={submitForm}
+            />
+          </div>
+          <div class="uk-margin">
+            <label class="uk-form-label" for="form-horizontal-text">
+              Email:
+            </label>
+            <input
+              class="uk-input uk-form-danger uk-form-width-large"
+              placeholder="Enter email@emails.com"
+              name="email"
+              type="email"
+              id="email"
+              onChange={submitForm}
+            />
+          </div>
+          <div class="uk-margin">
+            <label class="uk-form-label" for="form-horizontal-text">
+              Password:
+            </label>
+            <input
+              class="uk-input uk-form-danger uk-form-width-large"
+              placeholder="Password"
+              name="password"
+              type="password"
+              id="password"
+              onChange={submitForm}
+            />
+          </div>
+          <div class="uk-margin">
+            <button class="uk-button uk-button-danger" type="submit">
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
 }
 
 export default Signup;
