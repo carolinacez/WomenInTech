@@ -9,21 +9,25 @@ function ProductList() {
 
     const { data, loading } = useQuery(QUERY_PRODUCTS)
     const products = data && data.products ? data.products : []
-    
 
+    const [cart, setCart] = useState([])
+    // console.log(cart);
+
+    const addToCart = (item) => {
+        setCart([...cart, item]);
+        console.log(item); 
+    }
 
     return (
         <div>
             <h2>Merch:</h2>
             <div>
-                {products.map(product => (
+                {products.map((product) => (
                     <Item
                         key={product._id}
                         _id={product._id}
-                        image={product.image}
-                        name={product.name}
-                        price={product.price}
-                        quantity={product.quantity}
+                        product={product}
+                        addToCart={addToCart}
                     />
                 ))}
                 </div>
