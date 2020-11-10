@@ -31,7 +31,7 @@ function App() {
       <Nav />
       <Switch>
        <Route exact path="/" component={Aboutus} /> 
-        {/* <Route exact path="/login" component={Login} /> */}
+        <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/cart" component={Cart} /> 
         <Route exact path ="/products" component={Products} /> 

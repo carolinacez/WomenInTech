@@ -6,41 +6,37 @@ function Nav() {
   function showNav() {
     if (Auth.loggedIn()) {
       return (
-        <ul>
-          <li>
-            <Link to="/"><button>About Us</button></Link>
-          </li>
-          <li>
-            <Link to="/products"><button>Products</button></Link>
-          </li>
-          <li>
-            <Link to="/cart"><button>Cart</button></Link>
-          </li>
-          <li>
-            <button href='/' onClick={() => Auth.logout()}>Logout</button>
-          </li>
-        </ul>
+        <div class="uk-button-group">
+          <button class="uk-button uk-button-danger">
+            <Link to="/">About Us</Link>
+          </button>
+          <button class="uk-button uk-button-danger">
+            <Link to="/products">Products</Link>
+          </button>
+          <button class="uk-button uk-button-danger">
+            <Link to="/cart">Cart</Link>
+          </button>
+          <button class="uk-button uk-button-secondary" href="/" onClick={() => Auth.logout()}>
+            Logout
+          </button>
+        </div>
       );
     } else {
       return (
-        <ul>
-          <li>
-            <Link to="/"><button>About Us</button></Link>
-          </li>
-         <li>
-            <Link to="/products"><button>Products</button></Link>
-          </li>
-          <li>
-            <button>
-            <Link to='/signup'>Signup</Link>
-            </button>
-          </li>
-          <li>
-            <button>
-            <Link to='/login'>Login</Link>
-            </button>
-          </li>
-        </ul>
+        <div class="uk-button-group">
+          <button class="uk-button uk-button-danger">
+            <Link to="/">About Us</Link>
+          </button>
+          <button class="uk-button uk-button-danger">
+            <Link to="/products">Products</Link>
+          </button>
+          <button class="uk-button uk-button-danger">
+            <Link to="/signup">Signup</Link>
+          </button>
+          <button class="uk-button uk-button-danger">
+            <Link to="/login">Login</Link>
+          </button>
+        </div>
       );
     }
   }
