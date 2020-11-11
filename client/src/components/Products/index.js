@@ -1,39 +1,34 @@
 import React, {useState, useEffect} from "react";
-// import { useDispatch, useSelector } from 'react-redux'
-import Item from '../Item'
 import { QUERY_PRODUCTS} from '../../utils/queries'
 import { useQuery } from '@apollo/react-hooks';
+import { Link } from "react-router-dom";
 
-function ProductList() {
+
+function ProductList({addToCart}) {
 
 
-    const { data, loading } = useQuery(QUERY_PRODUCTS)
+    const { data } = useQuery(QUERY_PRODUCTS)
     const products = data && data.products ? data.products : []
 
-    const [cart, setCart] = useState([])
-    // console.log(cart);
 
-    const addToCart = (item) => {
-        setCart([...cart, item]);
-        console.log(item); 
-    }
+    const listItems = products.map((product, i) => (
+        <div key={`${i}`}>
+                <img
+                alt={product.name}
+                src={`/images/${product.image}`} />
+                 <p>{product.name}</p>
+              <Link to={'/cart'}><input type="submit" value='add' onClick={()=> addToCart(product)}></input></Link>
+        </div>
+    ))
+
+
 
     return (
-        <div>
+        <div>            
             <h2>Merch:</h2>
-            <div>
-                {products.map((product) => (
-                    <Item
-                        key={product._id}
-                        _id={product._id}
-                        product={product}
-                        addToCart={addToCart}
-                    />
-                ))}
-                </div>
-        
-        </div>
-    )
+        <div>{listItems}</div>
+        </div> 
+)
 }
 
 export default ProductList; 

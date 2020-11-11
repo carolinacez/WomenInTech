@@ -22,17 +22,17 @@ export const LOGIN_USER = gql`
   }
 `;
 
-export const ORDER = gql`
-  mutation addOrder($products: [ID]!) {
-    addOrder(products: $products) {
-      purchaseDate
-      products {
-        _id
-      name
-      description
-      price
-      quantity
-      }
-    }
-  }
-`;
+// export const ORDER = gql`
+//   mutation addOrder($products: [ID]!) {
+//     addOrder(products: $products) {
+//       purchaseDate
+//       products {
+//         _id
+//       name
+//       description
+//       price
+//       quantity
+//       }
+//     }
+//   }
+// `;
