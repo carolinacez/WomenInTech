@@ -1,7 +1,8 @@
 import React, {useEffect} from 'react';
+import Auth from '../utils/auth'; 
 
 function Cart({ cart, removeFromCart, addToCart }) {
-    console.log(cart)
+    
 
 
     useEffect(() => {
@@ -15,7 +16,10 @@ function Cart({ cart, removeFromCart, addToCart }) {
               sum += (cart[i].price) 
             // sum += parseInt(cart.price)
             // console.log(sum)
+            // return `You clicked ${sum} times`;
             document.title = `Your cart total is ${sum}`;
+            // var boldElement = React.createElement('p', null, `${sum}`);
+            // console.log(boldElement)
         }
         } else { 
             console.log('nothing in cart')
@@ -23,26 +27,33 @@ function Cart({ cart, removeFromCart, addToCart }) {
         
 
     }, [cart, addToCart]) 
-    
 
-    const cartItems = cart && cart.length ? (cart.map((product, i) => (
+
+    function cartItems() { 
+        if (Auth.loggedIn()) {
+            return (
+        cart && cart.length ? (cart.map((product, i) => (
+        
         <div key={`${product._id} ${i}`}>
             <img
                 alt={product.name}
                 src={`/images/${product.image}`} />
             <p>{product.name}</p>
-            <input type="submit" value='remove' onClick={() => removeFromCart(product)}></input>
+            {/* <strong> Total:{product.price}</strong> */}
+            
 
             <div>
-    <strong> Total:{product.price}</strong>
+                
+            <input type="submit" value='remove' onClick={() => removeFromCart(product)}></input>
+            
             </div>
         </div>
-    ))) : <span></span>
+    ))) : <span></span> )}}
     return (
 
 
         <div>
-            {cartItems}
+            {cartItems()}
             
 
         </div>
