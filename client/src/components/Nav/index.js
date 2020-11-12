@@ -1,7 +1,7 @@
 import React from "react";
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
-import logo from '../../assets/logo_girl_code_2.PNG'
+import logo from '../../assets/logo_crop_girl_code.PNG'
 
 function Nav(props) {
   function showNav() {
@@ -25,7 +25,7 @@ function Nav(props) {
       );
     } else {
       return (
-        <div className="uk-button-group" >
+        <div className="uk-button-group p-text" >
           <button className="uk-button uk-button-danger">
             <Link to="/" style={{ textDecoration: 'none', color: 'black' }}>About Us</Link>
           </button>
@@ -46,11 +46,12 @@ function Nav(props) {
     <header className="navigation">
       <div>
        <Link to="/" style={{ textDecoration: 'none' }}>
-          <img 
+          <img className='logo'
           alt ="logo"
           src={logo}
           />
         </Link>
+        <hr class="uk-divider-small"></hr>
         </div>
 
       <nav>{showNav()}</nav>
