@@ -1,6 +1,7 @@
 import React from "react";
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
+import logo from '../../assets/logo_girl_code_2.PNG'
 
 function Nav(props) {
   function showNav() {
@@ -24,18 +25,18 @@ function Nav(props) {
       );
     } else {
       return (
-        <div class="uk-button-group">
-          <button class="uk-button uk-button-danger">
-            <Link to="/">About Us</Link>
+        <div className="uk-button-group" >
+          <button className="uk-button uk-button-danger">
+            <Link to="/" style={{ textDecoration: 'none', color: 'black' }}>About Us</Link>
           </button>
-          <button class="uk-button uk-button-danger">
-            <Link to="/products">Products</Link>
+          <button className="uk-button uk-button-danger">
+            <Link to="/products" style={{ textDecoration: 'none', color: 'black' }}>Products</Link>
+          </button >
+          <button className="uk-button uk-button-danger">
+            <Link to="/signup" style={{ textDecoration: 'none', color: 'black' }}>Signup</Link>
           </button>
-          <button class="uk-button uk-button-danger">
-            <Link to="/signup">Signup</Link>
-          </button>
-          <button class="uk-button uk-button-danger">
-            <Link to="/login">Login</Link>
+          <button className="uk-button uk-button-danger">
+            <Link to="/login" style={{ textDecoration: 'none', color: 'black' }} >Login</Link>
           </button>
         </div>
       );
@@ -43,9 +44,14 @@ function Nav(props) {
   }
   return (
     <header className="navigation">
-      <h1>
-        <Link to="/">GIRL CODE</Link>
-      </h1>
+      <div>
+       <Link to="/" style={{ textDecoration: 'none' }}>
+          <img 
+          alt ="logo"
+          src={logo}
+          />
+        </Link>
+        </div>
 
       <nav>{showNav()}</nav>
     </header>
