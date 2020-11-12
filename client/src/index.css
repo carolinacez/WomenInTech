@@ -103,3 +103,14 @@ code {
 .padding {
   padding: 5%; 
 }
+
+footer {
+  border-top: solid rgb(240,80,110) 2px;
+  margin: 15px;
+  padding: 10px;
+  font-family: 'Montserrat', sans-serif;
+  color: black;
+  font-size: medium;
+  font-weight: bolder;
+  opacity: 0.80;
+}

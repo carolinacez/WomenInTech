@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ApolloProvider } from "@apollo/react-hooks";
 import ApolloClient from "apollo-boost";
-// import logo from './logo_girl_code.png';
 import Nav from "./components/Nav";
 import Aboutus from "./pages/Aboutus";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Cart from "./pages/Cart";
 import Products from "./components/Products";
+import Footer from "./components/Footer";
 
 const client = new ApolloClient({
   request: (operation) => {
@@ -64,6 +64,7 @@ function App() {
             component={() => <Products cart={cart} addToCart={addToCart} />}
           />
         </Switch>
+        <Footer/>
       </Router>
     </ApolloProvider>
   );
