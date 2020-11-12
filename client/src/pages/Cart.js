@@ -32,9 +32,9 @@ function Cart({ cart, removeFromCart, addToCart }) {
         sum += cart[i].price;
         i++;
       }
-      return 'Subtotal: $' + sum;
+      return "Subtotal: $" + sum;
     } else {
-    //   console.log("Nothing in cart!");
+      //   console.log("Nothing in cart!");
       return "Nothing in cart!";
     }
   }
@@ -44,16 +44,27 @@ function Cart({ cart, removeFromCart, addToCart }) {
       return cart && cart.length ? (
         cart.map((product, i) => (
           <div className="cartSum" key={`${product._id} ${i}`}>
-            <img alt={product.name} src={`/images/${product.image}`} />
-            <p>{product.name}</p>
-            <strong> Price: ${product.price}</strong>
-
-            <div>
-              <input
-                type="submit"
-                value="remove"
-                onClick={() => removeFromCart(product)}
-              ></input>
+            <div className="center-products">
+              <div className="product-card uk-child-width-1-2@m" uk-grid>
+                <div>
+                  <div className="uk-card uk-card-default">
+                    <div className="uk-card-media-top">
+                      <img
+                        alt={product.name}
+                        src={`/images/${product.image}`}
+                      />
+                    </div>
+                    <p className="font">{product.name}</p>
+                    <p className="font"> Price: ${product.price}</p>
+                    <input
+                      className="uk-button uk-button-danger"
+                      type="submit"
+                      value="remove"
+                      onClick={() => removeFromCart(product)}
+                    ></input>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         ))
@@ -64,8 +75,12 @@ function Cart({ cart, removeFromCart, addToCart }) {
   }
   return (
     <div>
+      <div className="background-color">
+        <h1 className="merch-title">
+          Cart:<div className="nothinginthcart">{cartTotal()}</div>
+        </h1>
+      </div>
       {cartItems()}
-      <div>{cartTotal()}</div>
     </div>
   );
 }

@@ -10,15 +10,15 @@ function Nav(props) {
       return (
         <div class="uk-button-group">
           <button class="uk-button uk-button-danger">
-            <Link to="/">About Us</Link>
+            <Link to="/" style={{ textDecoration: 'none', color: 'black' }}>About Us</Link>
           </button>
           <button class="uk-button uk-button-danger">
-            <Link to="/products">Products</Link>
+            <Link to="/products" style={{ textDecoration: 'none', color: 'black' }}>Products</Link>
           </button>
           <button class="uk-button uk-button-danger">
-            <Link to="/cart">Cart ({props.cart.length})</Link>
+            <Link to="/cart" style={{ textDecoration: 'none', color: 'black' }}>Cart ({props.cart.length})</Link>
           </button>
-          <button class="uk-button uk-button-secondary" href="/" onClick={() => Auth.logout()}>
+          <button style={{ textDecoration: 'none'}} class="uk-button uk-button-secondary" href="/" onClick={() => Auth.logout()}>
             Logout
           </button>
         </div>
