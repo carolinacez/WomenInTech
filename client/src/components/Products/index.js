@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { QUERY_PRODUCTS } from "../../utils/queries";
 import { useQuery } from "@apollo/react-hooks";
-import { Link } from "react-router-dom";
 import Auth from "../../utils/auth";
 
 function ProductList({ addToCart }) {

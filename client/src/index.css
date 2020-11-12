@@ -24,8 +24,9 @@ body {
 }
 
 .center-image {
-  margin: 0 10px 0 250px;
+  margin: 0 10px 0 150px;
 }
+/* left wast 250px */
 
 .text-color {
   font-family: 'Pacifico', cursive;
@@ -67,8 +68,9 @@ body {
 }
 
 .center-products {
-  margin: 10px 0 10px 550px;
+  margin: 10px 0 10px 450px;
 }
+/* left was 550px */
 
 .login-font {
   font-family: 'Montserrat', sans-serif;
@@ -113,4 +115,17 @@ footer {
   font-size: medium;
   font-weight: bolder;
   opacity: 0.80;
+}
+
+.resources {
+  color: black; 
+  font-weight: bold;
+}
+a {
+  color: rgb(240,80,110);
+}
+a:hover {
+  color:pink;
+  text-decoration:none;
+
 }
