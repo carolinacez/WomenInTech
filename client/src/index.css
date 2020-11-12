@@ -1,3 +1,6 @@
+/* font-family: 'Montserrat', sans-serif;
+font-family: 'Pacifico', cursive; */
+
 body {
   margin: 15px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,6 +8,47 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* background-color: rgba(199, 236, 238,1.0); */
+}
+
+.background { 
+  background-image: url(./assets/background_image.jpg);
+  background-size: 800px 800px;
+}
+
+.margin {
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.center-image {
+  margin: 0 10px 0 250px;
+}
+
+.text-color {
+  font-family: 'Pacifico', cursive;
+  color: rgb(240,80,110);
+}
+
+.p-text {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.merch-title {
+  font-family: 'Pacifico', cursive;
+  color: rgb(240,80,110);
+  padding: 10px;
+  margin: auto;
+  text-align: center;
+}
+
+.background-color {
+  background-color: white;
+  opacity: 0.85;
+
+
 }
 
 code {
