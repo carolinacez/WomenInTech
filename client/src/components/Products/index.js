@@ -12,25 +12,48 @@ function ProductList({ addToCart }) {
     if (Auth.loggedIn()) {
       return products.map((product, i) => (
         <div key={`${i}`}>
-          <div>
-            <img alt={product.name} src={`/images/${product.image}`} />
+          <div className="center-products">
+            <div className="product-card uk-child-width-1-2@m" uk-grid>
+              <div>
+                <div className="uk-card uk-card-default">
+                  <div className="uk-card-media-top">
+                    <img alt={product.name} src={`/images/${product.image}`} />
+                  </div>
+                  <div className="uk-card-body">
+                    <p className="font">{product.name}</p>
+                    <p className="font">${product.price}</p>
+                    <input
+                      className="uk-button uk-button-danger"
+                      type="submit"
+                      value="add to cart"
+                      onClick={() => addToCart(product)}
+                    ></input>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <p>{product.name}</p>
-          <Link to={"/cart"}>
-            <input
-              type="submit"
-              value="add"
-              onClick={() => addToCart(product)}
-            ></input>
-          </Link>
         </div>
       ));
     } else {
       return products.map((product, i) => (
         <div key={`${i}`}>
-          <img alt={product.name} src={`/images/${product.image}`} />
-          <p>{product.name}</p>
-          <p>Please log in or signup to add items to cart!</p>
+          <div className="center-products">
+            <div className="product-card uk-child-width-1-2@m" uk-grid>
+              <div>
+                <div className="uk-card uk-card-default">
+                  <div className="uk-card-media-top">
+                    <img alt={product.name} src={`/images/${product.image}`} />
+                  </div>
+                  <div className="uk-card-body">
+                    <p className="font">{product.name}</p>
+                    <p className="font">${product.price}</p>
+                    <p className="pleaselogin">Please log in or signup to add items to cart!</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       ));
     }

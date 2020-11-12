@@ -32,10 +32,10 @@ function Signup() {
   return (
     <div>
       <div className="padding">
-        <h2 class="uk-legend">Signup</h2>
+        <h2 class="signup-login uk-legend">Signup</h2>
         <form class="uk-form-horizontal uk-margin-large" onSubmit={signupForm}>
           <div class="uk-margin">
-            <label class="uk-form-label" for="form-horizontal-text">
+            <label class="login-font uk-form-label" for="form-horizontal-text">
               Username:
             </label>
             <input
@@ -48,7 +48,7 @@ function Signup() {
             />
           </div>
           <div class="uk-margin">
-            <label class="uk-form-label" for="form-horizontal-text">
+            <label class="login-font uk-form-label" for="form-horizontal-text">
               Email:
             </label>
             <input
@@ -61,7 +61,7 @@ function Signup() {
             />
           </div>
           <div class="uk-margin">
-            <label class="uk-form-label" for="form-horizontal-text">
+            <label class="login-font uk-form-label" for="form-horizontal-text">
               Password:
             </label>
             <input
@@ -74,7 +74,7 @@ function Signup() {
             />
           </div>
           <div class="uk-margin">
-            <button class="uk-button uk-button-danger" type="submit">
+            <button class="login-font uk-button uk-button-danger" type="submit">
               Submit
             </button>
           </div>

@@ -47,8 +47,52 @@ body {
 .background-color {
   background-color: white;
   opacity: 0.85;
+}
 
+.font {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bolder;
+  color: black;
+  font-size: xx-large;
+}
 
+.nothinginthcart {
+  font-family: 'Pacifico', cursive;
+  color: black;
+  font-size: xx-large;
+}
+
+.product-card {
+  text-align: center;
+}
+
+.center-products {
+  margin: 10px 0 10px 550px;
+}
+
+.login-font {
+  font-family: 'Montserrat', sans-serif;
+  color: black;
+  font-size: x-large;
+}
+
+.signup-login {
+  font-family: 'Pacifico', cursive;
+  color: black;
+  font-size: 50px;
+}
+
+.pleaselogin {
+  font-family: 'Montserrat', sans-serif;
+  color: rgb(240,80,110);
+  font-weight: bolder;
+  font-size: x-large;
+}
+
+.footer {
+  font-family: 'Montserrat', sans-serif;
+  color: black;
+  font-size: x-large;
 }
 
 code {

@@ -63,10 +63,6 @@ function App() {
             path="/products"
             component={() => <Products cart={cart} addToCart={addToCart} />}
           />
-          <div className="App">
-            <header className="App-header"></header>
-            <body></body>
-          </div>
         </Switch>
       </Router>
     </ApolloProvider>
