@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Auth from "../utils/auth";
 
 function Cart({ cart, removeFromCart, addToCart }) {
