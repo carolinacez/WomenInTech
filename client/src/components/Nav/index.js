@@ -2,8 +2,9 @@ import React from "react";
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
 
-function Nav() {
+function Nav(props) {
   function showNav() {
+    console.log(props);
     if (Auth.loggedIn()) {
       return (
         <div class="uk-button-group">
@@ -14,7 +15,7 @@ function Nav() {
             <Link to="/products">Products</Link>
           </button>
           <button class="uk-button uk-button-danger">
-            <Link to="/cart">Cart</Link>
+            <Link to="/cart">Cart ({props.cart.length})</Link>
           </button>
           <button class="uk-button uk-button-secondary" href="/" onClick={() => Auth.logout()}>
             Logout
