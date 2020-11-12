@@ -68,12 +68,15 @@ function Aboutus() {
               <div className="uk-card-body">
                 <h1 className="text-color">About girl_code</h1>
                 <p className='p-text'>
-                  We are a mission based company that sells merchandise which 50% of 
-                  the proceeds go to supporting women of all ages who want to get into tech. 
-                  As a minority in this industry girl_code feels like it's important to support 
-                  and inspire women to get into tech. Please checkout our merch in the products 
-                  section and sign up or login to checkout more resources on how women can get started in
-                  the tech industry or other ways on how you can support women in tech.
+                We are a mission based company. We sell different type of
+                merchandise which 50% of the proceeds got to supporting women of all
+                ages who want to get into tech. As a minority in this industry we
+                feel like it's important to support and inspire women to get into
+                tech. Please checkout our merch in the products section and sign up
+                or login to checkout more resources on how women can get started in
+                the tech industry or other ways on how to support women in tech.
+                Please checkout the links below for web development resources 
+                and other organizations that support women/girls in tech: 
                 </p>
               </div>
               <div class="uk-card-media-bottom">
