@@ -16,7 +16,7 @@
 
   ## Installation
   1. npx create-react-app my-app
-  2. connect client with server, this app uses MongoDB-mongoose
+  2. connect client with server, this app uses Mongodb Atlas
 
   ## Usage 
   Run npm start from the root of the project.
